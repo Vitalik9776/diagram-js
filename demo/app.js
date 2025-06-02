@@ -64,7 +64,8 @@ const layoutSelector = document.querySelector('#layoutSelector');
 layoutSelector.addEventListener('change', e => {
   const type = e.target.value;
   diagram.get('hierarchyLayout').setType(type);
-  diagram.get('hierarchyModeling').layout();
+  const data = diagram.get('hierarchyModeling').save();
+  diagram.get('hierarchyModeling').load(data);
 });
 
 // show element details on click
