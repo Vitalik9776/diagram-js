@@ -65,13 +65,66 @@ Use it as follows:
 
 ```javascript
 import Diagram from "diagram-js/lib/Diagram";
+import autoLayout from "diagram-js/lib/features/hierarchy/autoLayout";
 import HierarchyModule from "diagram-js/lib/features/hierarchy";
+import data from "diagram-js/lib/features/hierarchy/sampleData";
+
+import MoveCanvasModule from "diagram-js/lib/navigation/movecanvas";
+import ZoomScrollModule from "diagram-js/lib/navigation/zoomscroll";
+
+import ConnectModule from "diagram-js/lib/features/connect";
+import ContextPadModule from "diagram-js/lib/features/context-pad";
+import CreateModule from "diagram-js/lib/features/create";
+import HandToolModule from "diagram-js/lib/features/hand-tool";
+import LassoToolModule from "diagram-js/lib/features/lasso-tool";
+import SpaceToolModule from "diagram-js/lib/features/space-tool";
+import GlobalConnectModule from "diagram-js/lib/features/global-connect";
+import ModelingModule from "diagram-js/lib/features/modeling";
+import MoveModule from "diagram-js/lib/features/move";
+import OutlineModule from "diagram-js/lib/features/outline";
+import PaletteModule from "diagram-js/lib/features/palette";
+import ResizeModule from "diagram-js/lib/features/resize";
+import RulesModule from "diagram-js/lib/features/rules";
+import SelectionModule from "diagram-js/lib/features/selection";
+import LabelSupportModule from "diagram-js/lib/features/label-support";
+import PopupMenuModule from "diagram-js/lib/features/popup-menu";
+import OverlaysModule from "diagram-js/lib/features/overlays";
+import TranslateModule from "diagram-js/lib/i18n/translate";
+import SnappingModule from "diagram-js/lib/features/snapping";
+import EditorActionsModule from "diagram-js/lib/features/editor-actions";
+import KeyboardModule from "diagram-js/lib/features/keyboard";
 
 const diagram = new Diagram({
   canvas: { container: document.querySelector("#canvas") },
-  modules: [ HierarchyModule ]
+  modules: [
+    MoveCanvasModule,
+    ZoomScrollModule,
+    ConnectModule,
+    ContextPadModule,
+    CreateModule,
+    HandToolModule,
+    LassoToolModule,
+    SpaceToolModule,
+    GlobalConnectModule,
+    ModelingModule,
+    MoveModule,
+    OutlineModule,
+    PaletteModule,
+    ResizeModule,
+    RulesModule,
+    SelectionModule,
+    LabelSupportModule,
+    PopupMenuModule,
+    OverlaysModule,
+    TranslateModule,
+    SnappingModule,
+    EditorActionsModule,
+    KeyboardModule,
+    HierarchyModule
+  ]
 });
 
+autoLayout(data);
 diagram.get("hierarchyModeling").load(data);
 ```
 
