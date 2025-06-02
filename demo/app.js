@@ -23,6 +23,7 @@ import TranslateModule from '../lib/i18n/translate';
 import SnappingModule from '../lib/features/snapping';
 import EditorActionsModule from '../lib/features/editor-actions';
 import KeyboardModule from '../lib/features/keyboard';
+import CroppingConnectionDocking from '../lib/layout/CroppingConnectionDocking';
 import data from '../lib/features/hierarchy/sampleData';
 
 const canvas = document.querySelector('#canvas');
@@ -30,6 +31,7 @@ const canvas = document.querySelector('#canvas');
 const diagram = new Diagram({
   canvas: { container: canvas },
   modules: [
+    { connectionDocking: [ 'type', CroppingConnectionDocking ] },
     MoveCanvasModule,
     ZoomScrollModule,
     ConnectModule,
