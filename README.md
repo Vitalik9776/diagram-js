@@ -75,7 +75,15 @@ const diagram = new Diagram({
 diagram.get("hierarchyModeling").load(data);
 ```
 
+## Run demo locally
 
+Start the webpack development server to experiment with the included example:
+
+```sh
+npm start
+```
+
+Open http://localhost:8080 in your browser to view the demo.
 
 ## License
 
