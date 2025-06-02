@@ -1,0 +1,12 @@
+.graph-node {
+  fill: white;
+  stroke: black;
+}
+
+.graph-edge {
+  stroke: gray;
+}
+
+.graph-node.selected {
+  stroke: blue;
+}
