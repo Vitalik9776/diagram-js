@@ -511,6 +511,12 @@
   background: var(--context-pad-entry-hover-background-color);
 }
 
+.djs-context-pad .log-entry:after {
+  content: 'L';
+  font-size: 14px;
+  line-height: 22px;
+}
+
 .djs-context-pad.open {
   display: block;
 }

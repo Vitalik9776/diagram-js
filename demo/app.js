@@ -14,7 +14,6 @@ import ModelingModule from '../lib/features/modeling';
 import MoveModule from '../lib/features/move';
 import OutlineModule from '../lib/features/outline';
 import PaletteModule from '../lib/features/palette';
-import ResizeModule from '../lib/features/resize';
 import RulesModule from '../lib/features/rules';
 import SelectionModule from '../lib/features/selection';
 import LabelSupportModule from '../lib/features/label-support';
@@ -25,7 +24,6 @@ import SnappingModule from '../lib/features/snapping';
 import EditorActionsModule from '../lib/features/editor-actions';
 import KeyboardModule from '../lib/features/keyboard';
 import data from '../lib/features/hierarchy/sampleData';
-import autoLayout from '../lib/features/hierarchy/autoLayout';
 
 const canvas = document.querySelector('#canvas');
 
@@ -45,7 +43,6 @@ const diagram = new Diagram({
     MoveModule,
     OutlineModule,
     PaletteModule,
-    ResizeModule,
     RulesModule,
     SelectionModule,
     LabelSupportModule,
@@ -59,7 +56,6 @@ const diagram = new Diagram({
   ]
 });
 
-autoLayout(data);
 diagram.get('hierarchyModeling').load(data);
 
 // show element details on click
@@ -76,3 +72,17 @@ diagram.get('eventBus').on('element.click', ({ element }) => {
 
 // expose for console debugging
 window.diagram = diagram;
+
+const saveBtn = document.querySelector('#save');
+saveBtn.addEventListener('click', () => {
+  const data = diagram.get('hierarchyModeling').save();
+  const blob = new Blob([ JSON.stringify(data, null, 2) ], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'diagram.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
