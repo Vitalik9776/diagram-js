@@ -517,6 +517,12 @@
   line-height: 22px;
 }
 
+.djs-context-pad .add-child-entry:after {
+  content: '+';
+  font-size: 14px;
+  line-height: 22px;
+}
+
 .djs-context-pad.open {
   display: block;
 }
