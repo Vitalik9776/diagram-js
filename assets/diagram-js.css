@@ -522,6 +522,11 @@
   font-size: 14px;
   line-height: 22px;
 }
+.djs-context-pad .info-entry:after {
+  content: 'i';
+  font-size: 14px;
+  line-height: 22px;
+}
 
 .djs-context-pad.open {
   display: block;
