@@ -58,6 +58,13 @@ const diagram = new Diagram({
 
 diagram.get('hierarchyModeling').load(data);
 
+const layoutSelector = document.querySelector('#layoutSelector');
+layoutSelector.addEventListener('change', e => {
+  const type = e.target.value;
+  diagram.get('hierarchyLayout').setType(type);
+  diagram.get('hierarchyModeling').layout();
+});
+
 // show element details on click
 const detailsPanel = document.querySelector('#details');
 diagram.get('eventBus').on('element.click', ({ element }) => {
