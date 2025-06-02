@@ -58,6 +58,24 @@ Expose an environment variable `TEST_BROWSERS=(Chrome|Firefox)` to execute the t
 > [!NOTE]
 > We do not generate any build artifacts. Required parts of the library should be bundled by consuming libraries as needed instead.
 
+## Hierarchy visualization example
+
+A small module in `lib/features/hierarchy` demonstrates how to render hierarchical data.
+Use it as follows:
+
+```javascript
+import Diagram from "diagram-js/lib/Diagram";
+import HierarchyModule from "diagram-js/lib/features/hierarchy";
+
+const diagram = new Diagram({
+  canvas: { container: document.querySelector("#canvas") },
+  modules: [ HierarchyModule ]
+});
+
+diagram.get("hierarchyModeling").load(data);
+```
+
+
 
 ## License
 
